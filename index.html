@@ -1,121 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juha (Jay) Park — Portfolio</title>
-    <style>
-        :root {
-            --bg-color: #FAFAFA;
-            --text-color: #1A1A1A;
-            --secondary-text: #666666;
-            --accent-color: #000000;
-            --border-color: #E0E0E0;
-        }
-        
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        nav {
-            position: sticky; top: 0;
-            background-color: rgba(250, 250, 250, 0.95);
-            backdrop-filter: blur(5px);
-            padding: 1.5rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            z-index: 100;
-        }
-
-        .nav-logo a { font-weight: 700; letter-spacing: 1px; font-size: 1.1rem; text-transform: uppercase; text-decoration: none; color: var(--text-color); }
-        .nav-links a { text-decoration: none; color: var(--secondary-text); margin-left: 2rem; font-size: 0.95rem; transition: color 0.2s ease; }
-        .nav-links a:hover { color: var(--accent-color); }
-
-        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
-
-        .hero { padding: 4rem 0; border-bottom: 1px solid var(--border-color); }
-        .hero h2 { color: var(--secondary-text); font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
-        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.2rem; color: var(--secondary-text); max-width: 700px; }
-
-        section { padding: 4rem 0; border-bottom: 1px solid var(--border-color); }
-        section h2 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .section-desc { color: var(--secondary-text); margin-bottom: 3rem; }
-
-        .experience-item { display: flex; margin-bottom: 2.5rem; }
-        .experience-date { width: 25%; color: var(--secondary-text); font-size: 0.95rem; padding-right: 1rem; }
-        .experience-content { width: 75%; }
-        .experience-content h3 { font-size: 1.1rem; margin-bottom: 0.2rem; }
-        .experience-content .role { font-weight: 600; margin-bottom: 0.8rem; }
-
-        .item-card { display: flex; gap: 2rem; margin-bottom: 3rem; transition: transform 0.2s; }
-        .item-card:hover { transform: translateX(5px); }
-        .item-cover { width: 200px; height: 200px; background-color: #EAEAEA; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
-        .item-details { flex-grow: 1; }
-        
-        /* Make titles clickable links */
-        .item-details h3 a { font-size: 1.4rem; margin-bottom: 0.3rem; text-decoration: none; color: var(--text-color); }
-        .item-details h3 a:hover { text-decoration: underline; }
-        
-        .item-tags { font-size: 0.9rem; color: var(--secondary-text); margin-bottom: 1rem; font-weight: 500; }
-        .item-desc { margin-bottom: 1.5rem; font-size: 0.95rem; }
-        
-        audio { width: 100%; height: 40px; margin-bottom: 1rem; }
-        
-        .action-link { display: inline-block; text-decoration: none; color: var(--text-color); font-weight: 600; border-bottom: 1px solid var(--text-color); padding-bottom: 2px; font-size: 0.95rem; margin-right: 1rem;}
-        .action-link:hover { color: var(--secondary-text); border-color: var(--secondary-text); }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .experience-item, .item-card { flex-direction: column; }
-            .experience-date { width: 100%; margin-bottom: 0.5rem; font-weight: 600; }
-            .experience-content { width: 100%; }
-            .item-card { gap: 1rem; }
-            .item-cover { width: 100%; height: auto; aspect-ratio: 1/1; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The audio engineering and music portfolio of Juha Park.">
+  <meta name="theme-color" content="#15131f">
+  <title>Juha Park | Audio & Music</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav>
-        <div class="nav-logo"><a href="index.html">Juha (Jay) Park</a></div>
-        <div class="nav-links">
-            <a href="#about">Home</a>
-            <a href="#my-life">My Life</a>
-            <a href="#projects">Projects</a>
-            <a href="#music">Music</a>
-            <a href="#contact">Contact</a>
-        </div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Juha Park home">
+      <span class="brand-mark">JP<span>✳</span></span>
+      <span>JUHA PARK</span>
+    </a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="#work">Selected work</a>
+      <a href="#audio">Audio</a>
+      <a href="#music">Music</a>
+      <a href="#about">About</a>
+      <a class="nav-contact" href="#contact">Contact <span>↗</span></a>
     </nav>
+  </header>
 
-    <div class="container">
-        
-        <section class="hero" id="about">
-            <h2>STEM | Music</h2>
-            <h1>Hi, I'm Jay!</h1>
-            <p>I am a high school student and audio engineer bridging the gap between artistic musicality and rigorous STEM principles.</p>
-        </section>
+  <main id="main">
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> AUDIO ENGINEERING · MUSIC · PRODUCTION</p>
+        <h1>Making every<br>detail <span class="gradient-text">sound</span><br>like something.</h1>
+        <p class="hero-intro">I'm Juha, a student audio engineer and musician interested in the craft behind live performances and the creativity behind music.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore my work <span>↘</span></a>
+          <a class="text-link" href="#about">A little about me <span>↗</span></a>
+        </div>
+        <div class="hero-footnote"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span> Building the sound, one show at a time.</div>
+      </div>
+      <div class="hero-art" aria-label="Decorative abstract sound artwork">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-disc"><div class="disc-center">JP<br><span>音</span></div></div>
+        <div class="art-tag tag-top">LIVE SOUND<br><span>01 / ENGINEERING</span></div>
+        <div class="art-tag tag-bottom">MUSIC & IDEAS<br><span>02 / CREATIVE</span></div>
+        <div class="art-star">✳</div>
+        <div class="art-note">♪</div>
+      </div>
+      <div class="hero-scroll"><span></span> SCROLL TO EXPLORE</div>
+    </section>
 
-        <!-- MY LIFE SECTION -->
-        <section id="my-life">
-            <h2>My Life</h2>
-            <p class="section-desc">A timeline of my leadership, technical roles, and community involvement.</p>
-            
-            <div class="experience-item">
-                <div class="experience-date">Sep. 2026 — Present</div>
-                <div class="experience-content">
-                    <h3>AI Innovation Club</h3>
-                    <p class="role">Founder & President</p>
-                    <p>Designed an 8-meeting curriculum to introduce emerging tech education and prompt engineering to the student body.</p>
-                </div>
-            </div>
+    <section class="ticker" aria-label="Areas of interest">
+      <div class="ticker-track">
+        <span>LIVE SOUND</span><b>✳</b><span>THEATER</span><b>✳</b><span>MUSIC</span><b>✳</b><span>ARRANGING</span><b>✳</b><span>PRODUCTION</span><b>✳</b>
+        <span>LIVE SOUND</span><b>✳</b><span>THEATER</span><b>✳</b><span>MUSIC</span><b>✳</b><span>ARRANGING</span><b>✳</b><span>PRODUCTION</span><b>✳</b>
+      </div>
+    </section>
 
-            <div class="experience-item">
-                <div class="experience-date">2024 — Present</div>
-                <div class="experience-content">
-                    <h3>School
+    <section class="section-wrap section-block" id="work">
+      <div class="section-heading">
+        <div><p class="eyebrow">A FEW THINGS I'VE WORKED ON</p><h2>Selected <span class="serif-accent">work.</span></h2></div>
+        <p class="section-aside">A growing collection of shows, technical challenges, and musical ideas.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card project-large">
+          <a class="project-visual visual-theater" href="#audio" aria-label="Read about theater audio">
+            <span class="visual-label">LIVE PRODUCTION / 01</span>
+            <div class="stage-light light-one"></div><div class="stage-light light-two"></div>
+            <div class="stage-floor"></div><div class="visual-wave">〰</div>
+            <span class="visual-arrow">↗</span>
+          </a>
+          <div class="project-meta"><span>THEATER SOUND</span><span>01 — CASE STUDY</span></div>
+          <h3>The show behind the show</h3>
+          <p>Microphone preparation, backstage coordination, and keeping the audio system ready for performance.</p>
+          <a class="card-link" href="#audio">Explore audio work <span>↗</span></a>
+        </article>
+        <article class="project-card">
+          <a class="project-visual visual-live" href="#audio" aria-label="Read about live sound work">
+            <span class="visual-label">LIVE SOUND / 02</span>
+            <div class="mixer-art"><div class="mixer-top"></div><div class="mixer-controls"></div><div class="mixer-faders"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <span class="visual-arrow">↗</span>
+          </a>
+          <div class="project-meta"><span>LIVE AUDIO</span><span>02 — TECHNICAL</span></div>
+          <h3>From setup to soundcheck</h3>
+          <p>Signal flow, console setup, mixing, and troubleshooting for school performances and events.</p>
+          <a class="card-link" href="#audio">Explore audio work <span>↗</span></a>
+        </article>
+        <article class="project-card">
+          <a class="project-visual visual-music" href="#music" aria-label="Explore music projects">
+            <span class="visual-label">MUSIC / 03</span>
+            <div class="music-sun"></div><div class="music-line line-a"></div><div class="music-line line-b"></div><div class="music-line line-c"></div>
+            <span class="music-symbol">♫</span><span class="visual-arrow">↗</span>
+          </a>
+          <div class="project-meta"><span>CREATIVE WORK</span><span>03 — MUSIC</span></div>
+          <h3>Ideas turned into music</h3>
+          <p>Arrangements, compositions, covers, and other musical experiments in progress.</p>
+          <a class="card-link" href="#music">Explore music <span>↗</span></a>
+        </article>
+      </div>
+      <p class="edit-note"><strong>Starter template:</strong> Replace these sample cards with real projects, photos, and details before sharing the site.</p>
+    </section>
+
+    <section class="audio-band" id="audio">
+      <div class="section-wrap audio-layout">
+        <div class="audio-heading">
+          <p class="eyebrow">01 / THE TECHNICAL SIDE</p>
+          <h2>Good sound<br>starts <span class="serif-accent">before</span><br>the first note.</h2>
+          <p>I enjoy the mix of preparation, problem-solving, teamwork, and quick decisions that make a live performance work.</p>
+        </div>
+        <div class="audio-list">
+          <article class="audio-item"><span class="item-number">01</span><div><h3>Live mixing</h3><p>Balancing sources, listening carefully, and supporting the performance in the room.</p></div><span class="item-icon">↗</span></article>
+          <article class="audio-item"><span class="item-number">02</span><div><h3>System & stage setup</h3><p>Microphones, wireless systems, speakers, signal flow, and getting everything ready.</p></div><span class="item-icon">↗</span></article>
+          <article class="audio-item"><span class="item-number">03</span><div><h3>Troubleshooting</h3><p>Finding the source of a problem, testing a solution, and staying calm under pressure.</p></div><span class="item-icon">↗</span></article>
+          <article class="audio-item"><span class="item-number">04</span><div><h3>Production teamwork</h3><p>Working with performers, teachers, and crew to help the whole event run smoothly.</p></div><span class="item-icon">↗</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block music-section" id="music">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / THE CREATIVE SIDE</p><h2>Music in <span class="serif-accent">progress.</span></h2></div>
+        <p class="section-aside">A place for compositions, arrangements, performances, and experiments.</p>
+      </div>
+      <div class="music-grid">
+        <article class="music-card music-card-purple">
+          <div class="record-art"><div class="record"><span></span></div><span class="record-spark">✳</span></div>
+          <div class="music-card-content"><span class="pill">ARRANGEMENT</span><h3>Reworking a familiar sound</h3><p>Add a short description of an arrangement, the choices you made, and your role.</p><a href="#contact" class="card-link">Listen / ask for a demo <span>↗</span></a></div>
+        </article>
+        <article class="music-card music-card-orange">
+          <div class="keys-art"><div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="keys-note">♪</span></div>
+          <div class="music-card-content"><span class="pill">PERFORMANCE</span><h3>Practice, play, perform</h3><p>Add a piano cover, live performance, or recording with a link to the finished piece.</p><a href="#contact" class="card-link">Listen / watch <span>↗</span></a></div>
+        </article>
+      </div>
+      <div class="audio-embed-note"><span class="embed-icon">♫</span><p><strong>Want to add playable audio?</strong><br>Upload your own work to an audio platform, then embed its player here or link directly to the track. Only share recordings you have permission to publish.</p></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="section-wrap about-layout">
+        <div class="about-stamp"><span>CURIOUS<br>BY NATURE</span><b>✳</b><small>LEARN · LISTEN · BUILD</small></div>
+        <div class="about-copy"><p class="eyebrow">A LITTLE ABOUT ME</p><h2>Technical mind.<br><span class="serif-accent">Musical ears.</span></h2>
+          <p>I'm Juha Park, a student musician and audio enthusiast learning through real performances, hands-on setup, and creative projects. I'm especially interested in live sound and the way technical choices can help music connect with an audience.</p>
+          <p>This portfolio is a record of what I've worked on, what I've learned, and what I want to explore next.</p>
+          <a class="button button-dark" href="#contact">Let's connect <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section section-wrap" id="contact">
+      <p class="eyebrow">HAVE A PROJECT OR WANT TO CONNECT?</p>
+      <h2>Let's make<br>something <span class="gradient-text">matter.</span></h2>
+      <p>For questions about my work, music, or future collaborations, feel free to reach out.</p>
+      <a class="button button-primary" href="mailto:YOUR_EMAIL@example.com">Email me <span>↗</span></a>
+      <p class="contact-edit">Remember to replace the placeholder email address before publishing.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home"><span class="brand-mark">JP<span>✳</span></span><span>JUHA PARK</span></a>
+    <p>Made with curiosity, care, and a love for sound.</p>
+    <a href="#home" class="back-top">BACK TO TOP ↑</a>
+    <small>© <span id="year"></span> Juha Park · Audio & Music Portfolio</small>
+  </footer>
+</body>
+</html>
