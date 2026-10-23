@@ -3,179 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juha (Jay) Park | Audio Engineer & Musician</title>
+    <title>Juha (Jay) Park — Portfolio</title>
     <style>
-        /* Warm, Human-Centric Design System */
+        /* Minimalist, Clean Aesthetic */
         :root {
-            --primary: #2C3E50; /* Deep blue/grey for professionalism */
-            --accent: #D35400; /* Warm burnt orange for creative energy */
-            --bg: #FDFBF7; /* Soft off-white, less harsh than pure white */
-            --text: #333333;
+            --bg-color: #FAFAFA;
+            --text-color: #1A1A1A;
+            --secondary-text: #666666;
+            --accent-color: #000000;
+            --border-color: #E0E0E0;
         }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--bg);
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-weight: 700;
             letter-spacing: 1px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: #ECF0F1;
-            max-width: 600px;
-            margin: 1rem auto 0;
-            font-style: italic;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-text);
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
         }
 
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Container */
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 2rem;
         }
 
-        h2 {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
-            margin-top: 3rem;
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .hero h2 {
+            color: var(--secondary-text);
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            max-width: 700px;
+        }
+
+        /* Section Headers */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-desc {
+            color: var(--secondary-text);
+            margin-bottom: 3rem;
+        }
+
+        /* Experience Timeline Style */
+        .experience-item {
+            display: flex;
+            margin-bottom: 2.5rem;
+        }
+
+        .experience-date {
+            width: 25%;
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+            padding-right: 1rem;
+        }
+
+        .experience-content {
+            width: 75%;
+        }
+
+        .experience-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .experience-content .role {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Music / Projects Layout Style */
+        .music-item {
+            display: flex;
             gap: 2rem;
-            margin-top: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-
-        .media-placeholder {
-            width: 100%;
-            height: 150px;
+        .music-cover {
+            width: 200px;
+            height: 200px;
             background-color: #EAEAEA;
             border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            margin-bottom: 1rem;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .music-details {
+            flex-grow: 1;
+        }
+
+        .music-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .music-tags {
             font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--primary);
-            color: white;
-            margin-top: 4rem;
+        .music-desc {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
-        a {
-            color: var(--accent);
+        /* Audio Player Styling */
+        audio {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .action-link {
+            display: inline-block;
             text-decoration: none;
-            font-weight: bold;
+            color: var(--text-color);
+            font-weight: 600;
+            border-bottom: 1px solid var(--text-color);
+            padding-bottom: 2px;
+            font-size: 0.95rem;
+        }
+
+        .action-link:hover {
+            color: var(--secondary-text);
+            border-color: var(--secondary-text);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .experience-item { flex-direction: column; }
+            .experience-date { width: 100%; margin-bottom: 0.5rem; font-weight: 600; }
+            .experience-content { width: 100%; }
+            .music-item { flex-direction: column; gap: 1rem; }
+            .music-cover { width: 100%; height: auto; aspect-ratio: 1/1; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Juha (Jay) Park</h1>
-        <p>"Bridging the gap between artistic musicality and advanced STEM principles to engineer a universal sound."</p>
-    </header>
+    <nav>
+        <div class="nav-logo">Juha (Jay) Park</div>
+        <div class="nav-links">
+            <a href="#about">Home</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#music">Music</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
     <div class="container">
         
-        <section id="about">
-            <h2>The Architecture of Sound</h2>
-            <p>I am a multi-instrumentalist, arranger, and audio engineer. Whether I am conducting the Big Band, troubleshooting physical instrument structures, or applying data-driven project management to coordinate a 16-song live setlist, I blend engineering logic with the arts. My goal is to craft technology-based musical experiences that resonate deeply with all audiences.</p>
+        <section class="hero" id="about">
+            <h2>STEM | Music</h2>
+            <h1>Hi, I'm Jay!</h1>
+            <p>I am a high school student and audio engineer interested in bridging the gap between artistic musicality and rigorous STEM principles.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <p class="section-desc">A timeline of my leadership, technical roles, and community involvement.</p>
+            
+            <div class="experience-item">
+                <div class="experience-date">Sep. 2026 — Present</div>
+                <div class="experience-content">
+                    <h3>AI Innovation Club</h3>
+                    <p class="role">Founder & President</p>
+                    <p>Designed an 8-meeting curriculum and operational plan to introduce emerging tech education and prompt engineering to the student body.</p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-date">2024 — Present</div>
+                <div class="experience-content">
+                    <h3>School Productions</h3>
+                    <p class="role">Chief Audio & Lighting Engineer</p>
+                    <p>Managed the soundboard, designed lighting maps, and executed flawless live sound for major school concerts and theatrical productions.</p>
+                </div>
+            </div>
         </section>
 
         <section id="music">
-            <h2>Musical Artistry: Arranging, Performing & Conducting</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="media-placeholder">[ Embed YouTube Video or Audio File Here ]</div>
-                    <h3>Conducting & Arranging</h3>
-                    <p>Served as the musical stage director, arranging a 4-song mashup in Ableton Live for graduation and coordinating rehearsal schedules for a massive 16-song setlist.</p>
+            <h2>Music</h2>
+            <p class="section-desc">Selected compositions, arrangements, and technical mixes.</p>
+
+            <!-- Music Item 1 -->
+            <div class="music-item">
+                <!-- Replace src with your actual image file like "graduation-cover.jpg" -->
+                <img src="https://via.placeholder.com/200" alt="Graduation Mashup Cover" class="music-cover">
+                <div class="music-details">
+                    <h3>Graduation Walk Mashup</h3>
+                    <p class="music-tags">Ableton Live · Arrangement · 2026</p>
+                    <p class="music-desc">A 4-song, 118 BPM C Major mashup successfully arranged and produced in Ableton Live to score the 2026 graduation walk.</p>
+                    <!-- To use this, put your audio file (e.g., mashup.mp3) in the same folder as this HTML file -->
+                    <audio controls>
+                        <source src="your-audio-file.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <a href="#" class="action-link">View Project Details →</a>
                 </div>
-                <div class="card">
-                    <div class="media-placeholder">[ Embed Performance Photo/Video Here ]</div>
-                    <h3>Multi-Instrumentalist</h3>
-                    <p>Performing on stage as the sole alto saxophonist and electric guitarist for the school band, seamlessly transitioning from stage performer to behind-the-scenes technician.</p>
+            </div>
+
+            <!-- Music Item 2 -->
+            <div class="music-item">
+                <img src="https://via.placeholder.com/200" alt="Big Band Performance" class="music-cover">
+                <div class="music-details">
+                    <h3>Big Band / Tri-M Live Setlist</h3>
+                    <p class="music-tags">Live Audio Engineering · 2026</p>
+                    <p class="music-desc">Coordinated rehearsal schedules and technical routing for a 16-song live setlist, managing hardware mixing consoles and stage acoustics.</p>
+                    <audio controls>
+                        <source src="your-live-recording.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <a href="#" class="action-link">Check Routing Maps →</a>
                 </div>
             </div>
         </section>
 
-        <section id="audio-engineering">
-            <h2>Live Production & Audio Engineering</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="media-placeholder">[ Embed Soundboard Photo or Mix File Here ]</div>
-                    <h3>Chief Audio & Lighting Engineer</h3>
-                    <p>Managing the soundboard, designing lighting maps, and executing flawless live sound for major school concerts and theatrical productions.</p>
+        <section id="projects">
+            <h2>Projects</h2>
+            <p class="section-desc">A selection of technical and software engineering projects.</p>
+
+            <div class="music-item">
+                <div class="music-cover" style="display: flex; align-items: center; justify-content: center; background: #333; color: white; font-weight: bold; text-align: center; padding: 1rem;">
+                    AI Schedule Manager
                 </div>
-                <div class="card">
-                    <div class="media-placeholder">[ Embed Stage Patch/Routing Diagram Here ]</div>
-                    <h3>Technical Routing & Setup</h3>
-                    <p>Calculating precise acoustic requirements of venues and self-teaching advanced hardware mixing console operations to elevate school-wide events.</p>
+                <div class="music-details">
+                    <h3>Personal AI Schedule Manager</h3>
+                    <p class="music-tags">Python · Data Analysis · 2026</p>
+                    <p class="music-desc">A custom AI-based schedule manager designed to optimize precise rehearsal hours and ruthlessly prioritize academic workflows.</p>
+                    <a href="#" class="action-link">View Repository →</a>
                 </div>
             </div>
         </section>
 
-        <section id="technology">
-            <h2>STEM & Software Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>AI Schedule Manager</h3>
-                    <p>Developed a custom AI-based schedule manager to control precise rehearsal hours and ruthlessly prioritize academic and extracurricular workflows.</p>
-                    <a href="[LINK TO YOUR GITHUB REPO]">> View on GitHub</a>
-                </div>
-                <div class="card">
-                    <h3>Discord Bot Architecture</h3>
-                    <p>Coded independent Python projects utilizing external APIs to find practical, tech-driven solutions to everyday problems.</p>
-                    <a href="[LINK TO YOUR GITHUB REPO]">> View on GitHub</a>
-                </div>
-            </div>
+        <section id="contact" style="border-bottom: none; text-align: center; padding-top: 6rem;">
+            <h2>Find me elsewhere:</h2>
+            <p style="margin: 1.5rem 0 3rem 0;">
+                <a href="#" class="action-link" style="margin: 0 1rem;">GitHub</a>
+                <a href="#" class="action-link" style="margin: 0 1rem;">SoundCloud</a>
+                <a href="#" class="action-link" style="margin: 0 1rem;">Email</a>
+            </p>
         </section>
 
     </div>
-
-    <footer>
-        <p>Juha (Jay) Park | 2026</p>
-        <p><a href="mailto:your.email@example.com" style="color: white; text-decoration: underline;">Contact Me</a></p>
-    </footer>
-
 </body>
 </html>
